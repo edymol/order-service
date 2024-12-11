@@ -4,26 +4,56 @@ import com.digiaxix.domain.entity.BaseEntity;
 import com.digiaxix.domain.valueobject.Money;
 import com.digiaxix.domain.valueobject.OrderId;
 import com.digiaxix.order.service.domain.valueobject.OrderItemId;
-import lombok.Getter;
-import lombok.Setter;
 
 public class OrderItem extends BaseEntity<OrderItemId> {
-    @Setter
-    @Getter
+
     private OrderId orderId;
     private final Product product;
     private final int quantity;
     private final Money price;
     private final Money subTotal;
 
+    void initializeOrderItem(OrderId orderId, OrderItemId orderItemId) {
+        this.orderId = orderId;
+        super.setId(orderItemId);
+    }
+
+    boolean isPriceValid() {
+        return price.isGreaterThanZero() &&
+                price.equals(product.getPrice()) &&
+                price.multiply(quantity).equals(subTotal);
+    }
+
     private OrderItem(Builder builder) {
+        super.setId(builder.orderItemId);
         product = builder.product;
         quantity = builder.quantity;
         price = builder.price;
         subTotal = builder.subTotal;
     }
 
+    public OrderId getOrderId() {
+        return orderId;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public Money getPrice() {
+        return price;
+    }
+
+    public Money getSubTotal() {
+        return subTotal;
+    }
+
     public static final class Builder {
+        private OrderItemId orderItemId;
         private Product product;
         private int quantity;
         private Money price;
@@ -32,7 +62,12 @@ public class OrderItem extends BaseEntity<OrderItemId> {
         private Builder() {
         }
 
-        public static Builder newBuilder() {
+        public Builder id(OrderItemId val) {
+            orderItemId = val;
+            return this;
+        }
+
+        public static Builder builder() {
             return new Builder();
         }
 
