@@ -3,9 +3,8 @@ package com.digiaxix.order.service.domain.entity;
 import com.digiaxix.domain.entity.BaseEntity;
 import com.digiaxix.domain.valueobject.Money;
 import com.digiaxix.domain.valueobject.ProductId;
-import lombok.*;
 
-@Getter
+
 public class Product extends BaseEntity<ProductId> {
 
     private String name;
@@ -17,4 +16,16 @@ public class Product extends BaseEntity<ProductId> {
         this.price = price;
     }
 
+    public void updateWithConfirmedNameAndPrice(String name, Money price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Money getPrice() {
+        return price;
+    }
 }
