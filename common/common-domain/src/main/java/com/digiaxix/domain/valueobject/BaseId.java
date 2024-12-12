@@ -1,15 +1,16 @@
 package com.digiaxix.domain.valueobject;
 
-import lombok.Data;
-
 import java.util.Objects;
 
-@Data
 public abstract class BaseId<T> {
     private final T value;
 
     protected BaseId(T value) {
         this.value = value;
+    }
+
+    public T getValue() {
+        return value;
     }
 
     @Override
@@ -22,7 +23,6 @@ public abstract class BaseId<T> {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(value);
+        return Objects.hash(value);
     }
 }
-

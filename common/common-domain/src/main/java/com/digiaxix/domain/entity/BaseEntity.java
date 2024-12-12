@@ -4,10 +4,16 @@ import lombok.Data;
 
 import java.util.Objects;
 
-@Data
-
 public abstract class BaseEntity<ID> {
     private ID id;
+
+    public ID getId() {
+        return id;
+    }
+
+    public void setId(ID id) {
+        this.id = id;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -19,6 +25,6 @@ public abstract class BaseEntity<ID> {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hash(id);
     }
 }

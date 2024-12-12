@@ -6,7 +6,6 @@ import com.digiaxix.domain.valueobject.OrderId;
 import com.digiaxix.order.service.domain.valueobject.OrderItemId;
 
 public class OrderItem extends BaseEntity<OrderItemId> {
-
     private OrderId orderId;
     private final Product product;
     private final int quantity;
@@ -31,6 +30,11 @@ public class OrderItem extends BaseEntity<OrderItemId> {
         price = builder.price;
         subTotal = builder.subTotal;
     }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
 
     public OrderId getOrderId() {
         return orderId;
@@ -62,13 +66,9 @@ public class OrderItem extends BaseEntity<OrderItemId> {
         private Builder() {
         }
 
-        public Builder id(OrderItemId val) {
+        public Builder orderItemId(OrderItemId val) {
             orderItemId = val;
             return this;
-        }
-
-        public static Builder builder() {
-            return new Builder();
         }
 
         public Builder product(Product val) {

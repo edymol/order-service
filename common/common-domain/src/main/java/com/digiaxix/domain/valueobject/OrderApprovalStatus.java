@@ -1,6 +1,5 @@
-package com.digiaxix.order.service.domain.valueobject;
+package com.digiaxix.domain.valueobject;
 
 public enum OrderApprovalStatus {
     APPROVED, REJECTED
 }
-

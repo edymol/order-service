@@ -1,6 +1,5 @@
 package com.digiaxix.order.service.domain.dto.create;
 
-import com.digiaxix.order.service.domain.entity.OrderItem;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

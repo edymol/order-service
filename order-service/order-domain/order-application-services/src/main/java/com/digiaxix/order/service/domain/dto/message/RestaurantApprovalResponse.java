@@ -1,6 +1,6 @@
 package com.digiaxix.order.service.domain.dto.message;
 
-import com.digiaxix.order.service.domain.valueobject.OrderApprovalStatus;
+import com.digiaxix.domain.valueobject.OrderApprovalStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,9 +8,9 @@ import lombok.Getter;
 import java.time.Instant;
 import java.util.List;
 
-@AllArgsConstructor
-@Builder
 @Getter
+@Builder
+@AllArgsConstructor
 public class RestaurantApprovalResponse {
     private String id;
     private String sagaId;

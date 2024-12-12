@@ -3,13 +3,13 @@ package com.digiaxix.order.service.domain.dto.create;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import jakarta.validation.constraints.NotNull;
 
+import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Builder
 @Getter
+@Builder
 @AllArgsConstructor
 public class OrderItem {
     @NotNull

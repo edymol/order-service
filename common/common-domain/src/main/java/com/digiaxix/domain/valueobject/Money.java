@@ -1,12 +1,9 @@
 package com.digiaxix.domain.valueobject;
 
-import lombok.Data;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
-@Data
 public class Money {
     private final BigDecimal amount;
 
@@ -17,12 +14,11 @@ public class Money {
     }
 
     public boolean isGreaterThanZero() {
-        // use the compareTo() to ensure 0.00 returns True and not False
-        return this.amount != null && amount.compareTo(BigDecimal.ZERO) > 0;
+        return this.amount != null && this.amount.compareTo(BigDecimal.ZERO) > 0;
     }
 
     public boolean isGreaterThan(Money money) {
-        return this.amount != null && amount.compareTo(money.getAmount()) > 0;
+        return this.amount != null && this.amount.compareTo(money.getAmount()) > 0;
     }
 
     public Money add(Money money) {
@@ -37,6 +33,10 @@ public class Money {
         return new Money(setScale(this.amount.multiply(new BigDecimal(multiplier))));
     }
 
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -47,11 +47,10 @@ public class Money {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(amount);
+        return Objects.hash(amount);
     }
 
-    private  BigDecimal setScale(BigDecimal input) {
-        // this method helps with precision error decimal number
+    private BigDecimal setScale(BigDecimal input) {
         return input.setScale(2, RoundingMode.HALF_EVEN);
     }
 }

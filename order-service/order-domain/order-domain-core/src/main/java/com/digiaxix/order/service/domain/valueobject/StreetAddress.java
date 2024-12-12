@@ -1,17 +1,36 @@
 package com.digiaxix.order.service.domain.valueobject;
 
-import lombok.Data;
-
 import java.util.Objects;
 import java.util.UUID;
 
-@Data
 public class StreetAddress {
-
     private final UUID id;
     private final String street;
-    private final String city;
     private final String postalCode;
+    private final String city;
+
+    public StreetAddress(UUID id, String street, String postalCode, String city) {
+        this.id = id;
+        this.street = street;
+        this.postalCode = postalCode;
+        this.city = city;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public String getCity() {
+        return city;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -23,6 +42,6 @@ public class StreetAddress {
 
     @Override
     public int hashCode() {
-        return Objects.hash(street, city, postalCode);
+        return Objects.hash(street, postalCode, city);
     }
 }

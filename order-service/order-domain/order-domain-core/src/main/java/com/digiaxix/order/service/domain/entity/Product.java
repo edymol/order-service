@@ -4,9 +4,7 @@ import com.digiaxix.domain.entity.BaseEntity;
 import com.digiaxix.domain.valueobject.Money;
 import com.digiaxix.domain.valueobject.ProductId;
 
-
 public class Product extends BaseEntity<ProductId> {
-
     private String name;
     private Money price;
 
@@ -14,6 +12,10 @@ public class Product extends BaseEntity<ProductId> {
         super.setId(productId);
         this.name = name;
         this.price = price;
+    }
+
+    public Product(ProductId productId) {
+        super.setId(productId);
     }
 
     public void updateWithConfirmedNameAndPrice(String name, Money price) {

@@ -1,5 +1,4 @@
 package com.digiaxix.domain.entity;
 
-public class AggregateRoot<ID> extends BaseEntity<ID> {
-
+public abstract class AggregateRoot<ID> extends BaseEntity<ID> {
 }
