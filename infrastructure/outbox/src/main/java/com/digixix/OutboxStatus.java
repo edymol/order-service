@@ -1,4 +1,4 @@
-package com.food.ordering.system.outbox;
+package com.digixix;
 
 public enum OutboxStatus {
     STARTED, COMPLETED, FAILED

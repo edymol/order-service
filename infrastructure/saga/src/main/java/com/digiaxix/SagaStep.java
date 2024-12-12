@@ -1,4 +1,4 @@
-package com.food.ordering.system.saga;
+package com.digiaxix;
 
 public interface SagaStep<T> {
     void process(T data);

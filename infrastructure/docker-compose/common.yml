@@ -1,0 +1,3 @@
+networks:
+  ordering-food-system:
+    driver: bridge

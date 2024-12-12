@@ -39,3 +39,7 @@ build/
 .idea/
 .DS_Store
 .env
+
+# project volumes
+infrastructure/docker-compose/volumes/
+

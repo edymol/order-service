@@ -1,4 +1,4 @@
-package com.food.ordering.system.saga.order;
+package com.digiaxix.order;
 
 public final class SagaConstants {
 
