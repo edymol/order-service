@@ -4,6 +4,7 @@ import com.digiaxix.domain.valueobject.*;
 import com.digiaxix.order.service.domain.dto.create.CreateOrderCommand;
 import com.digiaxix.order.service.domain.dto.create.CreateOrderResponse;
 import com.digiaxix.order.service.domain.dto.create.OrderAddress;
+import com.digiaxix.order.service.domain.dto.track.TrackOrderResponse;
 import com.digiaxix.order.service.domain.entity.Order;
 import com.digiaxix.order.service.domain.entity.OrderItem;
 import com.digiaxix.order.service.domain.entity.Product;
@@ -34,6 +35,14 @@ public class OrderDataMapper {
                 .deliveryAddress(orderAddressToStreetAddress(createOrderCommand.getAddress()))
                 .price(new Money(createOrderCommand.getPrice()))
                 .items(orderItemsToOrderItemEntities(createOrderCommand.getItems()))
+                .build();
+    }
+
+    public TrackOrderResponse orderToTrackOrderResponse(Order order) {
+        return TrackOrderResponse.builder()
+                .orderTrackingId(order.getTrackingId().getValue())
+                .orderStatus(order.getOrderStatus())
+                .failureMessages(order.getFailureMessages())
                 .build();
     }
 
