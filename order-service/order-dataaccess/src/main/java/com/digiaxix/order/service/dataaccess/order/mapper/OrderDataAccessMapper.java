@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 import static com.digiaxix.order.service.domain.entity.Order.FAILURE_MESSAGE_DELIMITER;
 
 @Component
-public class OrderDataMapper {
+public class OrderDataAccessMapper {
 
     public OrderEntity orderToOrderEntity(Order order) {
         OrderEntity orderEntity = OrderEntity.builder()

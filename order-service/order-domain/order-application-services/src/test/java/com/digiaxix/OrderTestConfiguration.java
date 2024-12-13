@@ -1,13 +1,15 @@
 package com.digiaxix;
 
-import com.food.ordering.system.order.service.domain.ports.output.message.publisher.payment.PaymentRequestMessagePublisher;
-import com.food.ordering.system.order.service.domain.ports.output.message.publisher.restaurantapproval.RestaurantApprovalRequestMessagePublisher;
-import com.food.ordering.system.order.service.domain.ports.output.repository.*;
+import com.digiaxix.order.service.domain.OrderDomainService;
+import com.digiaxix.order.service.domain.OrderDomainServiceImpl;
+import com.digiaxix.order.service.domain.ports.output.message.publisher.payment.PaymentRequestMessagePublisher;
+import com.digiaxix.order.service.domain.ports.output.message.publisher.restaurantapproval.RestaurantApprovalRequestMessagePublisher;
+import com.digiaxix.order.service.domain.ports.output.repository.*;
 import org.mockito.Mockito;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication(scanBasePackages = "com.food.ordering.system")
+@SpringBootApplication(scanBasePackages = "com.digiaxix")
 public class OrderTestConfiguration {
 
     @Bean
