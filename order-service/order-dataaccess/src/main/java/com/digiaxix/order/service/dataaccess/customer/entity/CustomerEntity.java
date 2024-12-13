@@ -8,6 +8,7 @@ import lombok.*;
 import java.util.UUID;
 
 @Setter
+@Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,7 +18,9 @@ public class CustomerEntity {
 
     @Id
     private UUID id;
-    private String username;
-    private String firstName;
-    private String lastName;
+
+//    private String username;
+//    private String firstName;
+//    private String lastName;
+
 }
